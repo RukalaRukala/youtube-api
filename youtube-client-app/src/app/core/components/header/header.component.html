@@ -1,0 +1,10 @@
+<header class="header mb-2">
+  <div class="mx-auto pt-2 position-relative">
+    <a routerLink="/favorite"><i class="bi bi-heart-fill"></i></a>
+    <app-profile class="profile"></app-profile>
+    <app-search (filterVisibility)="filterVisible = $event"></app-search>
+  </div>
+  <div>
+    <app-filter *ngIf="filterVisible"></app-filter>
+  </div>
+</header>

@@ -1,0 +1,29 @@
+.login-wrap {
+  width: 350px;
+  min-height: 250px;
+  background-color: #F2F2F2;
+}
+
+.form-label {
+  font-size: 12px;
+}
+
+.btn {
+  box-shadow: 2px 0 4px 0 #2F80ED;
+  width: 124px;
+}
+
+input {
+  &.ng-invalid.ng-touched {
+    border: 2px solid red;
+  }
+
+  &.ng-valid {
+    border: 2px solid #01c401;
+  }
+}
+
+.validation {
+  font-size: 10px;
+  color: red;
+}

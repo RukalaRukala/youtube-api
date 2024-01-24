@@ -1,0 +1,14 @@
+<div class="d-flex flex-row flex-wrap justify-content-center gap-3">
+  <app-item
+    *ngFor="
+      let item of allItems$
+        | async
+        | includesPhrase: (key$ | async)
+        | paginate: [startItem, endItem]
+    "
+    [item]="item"
+    class="d-flex justify-content-center"></app-item>
+</div>
+<app-pagination
+  (currentPage)="setSliceProps($event)"
+  [allItems$]="allItems$"></app-pagination>

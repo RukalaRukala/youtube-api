@@ -1,0 +1,21 @@
+<div class="filter d-flex flex-row justify-content-center gap-2">
+  <span>Sorting by:</span>
+  <app-common-button
+    class="filter-criteria text-primary text-decoration-underline"
+    (click)="onChangeFilter(Criteria.DATE)">
+    date
+  </app-common-button>
+  <app-common-button
+    class="filter-criteria text-primary text-decoration-underline"
+    (click)="onChangeFilter(Criteria.COUNT)">
+    count of views
+  </app-common-button>
+  <app-common-button class="by-word filter-criteria text-primary">
+    by word or sentence
+  </app-common-button>
+  <input
+    #input
+    type="text"
+    class="input-by-word"
+    (keyup.enter)="onChangeFilter(input.value)" />
+</div>

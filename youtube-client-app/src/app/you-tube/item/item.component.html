@@ -1,0 +1,37 @@
+<div
+  [appColorBorder]="item.date"
+  [style.background-color]="item.custom ? 'rgba(248, 130, 130, 20%)' : 'none'"
+  class="back d-flex flex-column rounded-3 p-3">
+  <img
+    alt="screen-youtube-channel"
+    class="image mx-auto mb-2"
+    height="123"
+    role="button"
+    src="{{ item.imageURL }}"
+    width="223" />
+  <app-actions [actions]="item.actions" class="mb-3"></app-actions>
+  <div class="title-wrap">
+    <span class="title mx-auto mb-5">{{ item.itemName }}</span>
+  </div>
+  <div class="d-flex gap-2">
+    <app-common-button
+      (click)="showDetails()"
+      class="btn btn-primary w-50 mx-auto mt-4">
+      more...
+    </app-common-button>
+    <app-common-button
+      (click)="deleteCard()"
+      *ngIf="item.custom"
+      class="btn btn-primary w-50 mx-auto mt-4">
+      delete
+    </app-common-button>
+  </div>
+  <i
+    (click)="onFavorite()"
+    (keydown)="onFavorite()"
+    *ngIf="!item.custom"
+    [ngClass]="{ 'favorite-card': item.favorite }"
+    class="bi bi-heart-fill"
+    role="button"
+    tabindex="0"></i>
+</div>

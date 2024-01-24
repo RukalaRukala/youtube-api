@@ -1,0 +1,131 @@
+<form
+  [formGroup]="form"
+  (ngSubmit)="submit()"
+  class="login-wrap d-flex flex-column mx-auto mt-5 px-4 py-4">
+  <h2 class="fs-4 fw-bold">Create new card</h2>
+  <div class="mb-0">
+    <label for="titleInput" class="form-label text-secondary mb-0 px-2"
+      >Title</label
+    >
+    <input
+      id="titleInput"
+      type="text"
+      class="form-control bg-secondary-subtle"
+      formControlName="title" />
+    <div
+      *ngIf="title!.invalid && (title!.touched || title!.dirty)"
+      class="validation">
+      <div *ngIf="title!.errors?.['required']">Please enter a title</div>
+      <div *ngIf="title!.errors?.['minlength']">The title is too short</div>
+      <div *ngIf="title!.errors?.['maxlength']">The title is too long</div>
+    </div>
+  </div>
+  <div class="mb-0">
+    <input #optional type="checkbox" (change)="isChanged(optional)" />
+    <label for="descriptionInput" class="form-label text-secondary mb-0 px-2"
+      >Description</label
+    >
+    <div *ngIf="optional.checked">
+      <input
+        formControlName="description"
+        type="text"
+        class="form-control bg-secondary-subtle"
+        id="descriptionInput" />
+      <div
+        *ngIf="
+          description!.invalid && (description!.touched || description!.dirty)
+        "
+        class="validation">
+        <div *ngIf="description!.errors?.['maxlength']">
+          The description is too long
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mb-0">
+    <label for="imgInput" class="form-label text-secondary mb-0 px-2"
+      >Img</label
+    >
+    <input
+      id="imgInput"
+      type="text"
+      class="form-control bg-secondary-subtle"
+      formControlName="img" />
+    <div
+      *ngIf="img!.invalid && (img!.touched || img!.dirty)"
+      class="validation">
+      <div *ngIf="img!.errors?.['required']">
+        Please enter a link to the image
+      </div>
+    </div>
+  </div>
+  <div class="mb-0">
+    <label for="linkInput" class="form-label text-secondary mb-0 px-2"
+      >Link video</label
+    >
+    <input
+      id="linkInput"
+      type="text"
+      class="form-control bg-secondary-subtle"
+      formControlName="link" />
+    <div
+      *ngIf="link!.invalid && (link!.touched || link!.dirty)"
+      class="validation">
+      <div *ngIf="link!.errors?.['required']">
+        Please enter a link to the video
+      </div>
+    </div>
+  </div>
+  <div class="mb-0">
+    <label for="dateInput" class="form-label text-secondary mb-0 px-2"
+      >Creation date</label
+    >
+    <input
+      id="dateInput"
+      type="date"
+      class="form-control bg-secondary-subtle"
+      formControlName="date" />
+    <div
+      *ngIf="date!.invalid && (date!.touched || date!.dirty)"
+      class="validation">
+      <div *ngIf="date!.errors?.['required']">Please enter a creation date</div>
+      <div *ngIf="date!.errors?.['unrealDate']">Enter real date</div>
+    </div>
+  </div>
+  <div class="tags" formArrayName="tags">
+    <h4>Tags</h4>
+    <div>
+      <div *ngFor="let control of tags.controls; let idx = index">
+        <label for="tag">Tag {{ idx + 1 }}</label>
+        <input
+          id="tag"
+          type="text"
+          class="form-control bg-secondary-subtle"
+          [formControlName]="idx" />
+        <div
+          *ngIf="control!.invalid && (control!.touched || control!.dirty)"
+          class="validation">
+          <div *ngIf="control!.errors?.['required']">Please enter a title</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex flex-row justify-content-between mt-3">
+    <app-common-button>
+      <button
+        (click)="addTag()"
+        [disabled]="tags.controls.length === 5"
+        class="btn btn-primary mx-auto">
+        Add tag
+      </button>
+    </app-common-button>
+    <app-common-button>
+      <button (click)="reset()" class="btn btn-primary mx-auto" type="button">
+        Reset
+      </button>
+    </app-common-button>
+    <app-common-button>
+      <button class="btn btn-primary mx-auto" type="submit">Create card</button>
+    </app-common-button>
+  </div>
+</form>

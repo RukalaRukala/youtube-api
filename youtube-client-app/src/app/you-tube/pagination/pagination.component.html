@@ -1,0 +1,23 @@
+<div
+  *ngIf="pageQuantity"
+  class="wrap d-flex flex-row justify-content-center gap-2">
+  <button
+    (click)="goToPrev()"
+    [disabled]="activePage === 1"
+    class="btn btn-primary">
+    Previous
+  </button>
+  <button
+    (click)="onPage(i + 1)"
+    *ngFor="let page of p; index as i"
+    [ngClass]="{ 'active-page': i + 1 === activePage }"
+    class="btn page">
+    {{ i + 1 }}
+  </button>
+  <button
+    (click)="goToNext()"
+    [disabled]="activePage === pageQuantity"
+    class="btn btn-primary">
+    Next
+  </button>
+</div>

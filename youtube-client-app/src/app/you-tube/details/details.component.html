@@ -1,0 +1,39 @@
+<div *ngIf="item" class="details-wrap mt-5 mx-auto position-relative">
+  <div class="img-wrap position-relative">
+    <i
+      (click)="onFavorite()"
+      (keydown)="onFavorite()"
+      *ngIf="!item.custom"
+      [ngClass]="{ 'favorite-card': item.favorite }"
+      class="bi bi-heart-fill"
+      role="button"
+      tabindex="0"></i>
+    <img
+      alt="screen-youtube-channel"
+      class="details-img"
+      src="{{ item.imageURL }}" />
+    <button
+      (click)="router.navigate(['/search'])"
+      class="arrow position-absolute d-flex justify-content-center align-items-center">
+      <i class="bi bi-arrow-left"></i>
+    </button>
+  </div>
+  <div class="details-text">
+    <div
+      class="d-flex flex-row flex-wrap justify-content-between align-items-end">
+      <h2 class="fs-2 fw-bold">{{ item.itemName }}</h2>
+      <span class="text-secondary">{{ item.date | date: 'fullDate' }}</span>
+    </div>
+    <div class="w-100">
+      <h5 class="fs-6">Description:</h5>
+      <span class="text-secondary">{{ item.description }}</span>
+    </div>
+    <app-common-button
+      (click)="deleteCard()"
+      *ngIf="item.custom"
+      class="btn btn-primary w-50 mx-auto mt-4">
+      delete
+    </app-common-button>
+    <app-actions [actions]="item.actions" class="mt-auto"></app-actions>
+  </div>
+</div>

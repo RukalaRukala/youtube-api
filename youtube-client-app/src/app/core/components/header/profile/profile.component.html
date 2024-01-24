@@ -1,0 +1,20 @@
+<div class="profile d-flex flex-row align-items-center gap-1">
+  <span class="profile-name">Create Card</span>
+  <app-common-button (click)="goToAdmin()" class="btn btn-primary" id="profile">
+    <i class="bi bi-person-fill"></i>
+  </app-common-button>
+  <app-common-button
+    (click)="auth.logout()"
+    *ngIf="auth.isAuth"
+    class="btn btn-primary"
+    id="logout">
+    <i class="bi bi-box-arrow-right"></i>
+  </app-common-button>
+  <app-common-button
+    (click)="auth.logout()"
+    *ngIf="!auth.isAuth"
+    class="btn btn-primary"
+    id="login">
+    <i class="bi bi-box-arrow-in-right"></i>
+  </app-common-button>
+</div>

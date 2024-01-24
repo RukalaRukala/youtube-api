@@ -1,0 +1,47 @@
+.back {
+  position: relative;
+  width: 263px;
+  height: 367px;
+  background-color: rgb(233, 236, 239);
+  border-bottom: 5px solid;
+  box-shadow: 2px 0 4px 0 #b7b8b9;
+  font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+
+.title-wrap {
+  height: 75px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: 0;
+  text-align: right;
+  color: #4F4F4F;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn {
+  box-shadow: 2px 0 4px 0 #2F80ED;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.bi {
+  position: absolute;
+  color: #FFFFFF;
+  font-size: 2rem;
+  right: 1.5rem;
+  cursor: pointer;
+}
+
+.favorite-card {
+  color: red;
+}

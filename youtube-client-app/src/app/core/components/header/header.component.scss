@@ -1,0 +1,29 @@
+.header {
+  height: 130px;
+  background: #c4c3c3;
+}
+
+.profile {
+  position: absolute;
+  right: 10%;
+  top: 2.5rem;
+}
+
+.bi {
+  position: absolute;
+  top: 2rem;
+  left: 3rem;
+  color: red;
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 860px) {
+  .profile {
+    position: relative;
+    display: inline-flex;
+    top: 1rem;
+    right: -45%;
+    width: 5rem;
+
+  }
+}

@@ -1,0 +1,19 @@
+<div
+  class="search d-flex flex-row justify-content-center align-items-center w-75 mx-auto pt-2">
+  <div>
+    <a routerLink="/search"><i class="bi bi-youtube" role="button"></i></a>
+  </div>
+  <div class="input-group mx-2">
+    <input
+      #searchInput
+      aria-describedby="inputGroup-sizing-sm"
+      aria-label="Recipient's username"
+      class="form-control"
+      id="searchInput"
+      placeholder="Input"
+      type="text" />
+  </div>
+  <app-common-button (click)="toggleFilter()" class="btn btn-primary">
+    <i class="bi bi-sliders"></i>
+  </app-common-button>
+</div>
